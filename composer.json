@@ -1,0 +1,27 @@
+{
+    "name": "livo/sms-payvand",
+    "description": "Пакет для подключение smm-payvand к Laravel",
+    "minimum-stability": "stable",
+    "license": "proprietary",
+    "authors": [
+        {
+            "name": "Livo",
+            "email": "dev@livo.tj"
+        }
+    ],
+    "require": {
+        "php": "^7.3|^8.0"
+    },
+    "extra": {
+        "laravel": {
+            "providers": [
+                "Livo\\SMSPayvand\\Providers\\PayvandServiceProvider"
+            ]
+        }
+    },
+    "autoload": {
+        "psr-4": {
+            "Livo\\SMSPayvand\\": "src"
+        }
+    }
+}
