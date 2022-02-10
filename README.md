@@ -2,4 +2,4 @@
 
 #### Установка
 
-- composer require Colibri-IT-Inovation/sms-payvand
+- composer require livo/sms-payvand
