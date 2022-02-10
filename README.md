@@ -5,10 +5,13 @@
 ```bash
  composer require livo/sms-payvand
 ```
-## Опубликовать настройки
+## Опубликовать настройки и миграции
 
 ```bash
- php artisan vendor:publish --provider="Livo\\SMSPayvand\\Providers\\PayvandServiceProvider" --tag=payvand-config
+ php artisan vendor:publish --tag=payvand-config
+ 
+ php artisan vendor:publish --tag=sms-migrations
+ 
 ```
 ## Настройки
 Для настройки пакета мы должны вводить данные в файле .env
@@ -23,9 +26,9 @@ PAYVAND_SOURCE_ADDRESS=some_address
 
 ```
 
-## Миграции
+## Миграция
 ```bash
- php artisan migrate
+ php artisan migrate --path=database/migrations/2022_02_10_101629_create_sms_logs_table.php
 ```
 
 ## Использование
