@@ -3,6 +3,7 @@
 namespace Livo\SMSPayvand\Providers;
 
 use Illuminate\Support\ServiceProvider;
+use Livo\SMSPayvand\Providers\EventServiceProvider;
 
 class PayvandServiceProvider extends ServiceProvider
 {
@@ -13,7 +14,7 @@ class PayvandServiceProvider extends ServiceProvider
      */
     public function register()
     {
-        // $this->app->register(PayvandServiceProvider::class);
+        $this->app->register(EventServiceProvider::class);
     }
 
     /**
@@ -27,7 +28,7 @@ class PayvandServiceProvider extends ServiceProvider
         $this->publishes([
             __DIR__.'/../config/payvand.php' => config_path('payvand.php'),
         ]);
-        
+
         $this->loadMigrationsFrom(__DIR__.'/../database/migrations');
     }
 }
