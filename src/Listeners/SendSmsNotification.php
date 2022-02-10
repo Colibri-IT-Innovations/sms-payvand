@@ -2,10 +2,11 @@
 
 namespace Livo\SMSPayvand\Listeners;
 
+use GuzzleHttp\Client;
+use Livo\SMSPayvand\Models\SmsLog;
 use Livo\SMSPayvand\Events\SendedSms;
 use Illuminate\Queue\InteractsWithQueue;
 use Illuminate\Contracts\Queue\ShouldQueue;
-use GuzzleHttp\Client;
 
 class SendSmsNotification
 {
@@ -57,5 +58,7 @@ class SendSmsNotification
         $response = curl_exec($curl);
 
         curl_close($curl);
+
+        SmsLog::create(['phone' => $event->destination_address, 'message' => $event->message, 'response' => $response]);
     }
 }

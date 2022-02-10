@@ -27,5 +27,7 @@ class PayvandServiceProvider extends ServiceProvider
         $this->publishes([
             __DIR__.'/../config/payvand.php' => config_path('payvand.php'),
         ]);
+        
+        $this->loadMigrationsFrom(__DIR__.'/../database/migrations');
     }
 }
